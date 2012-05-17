@@ -387,6 +387,23 @@ config OMAP_GPU_FREQ_384
     help
         Enables overclocking the GPU to 384 mhz
 
+config CPU_FREQ_SET_MIN_MAX
+        bool "Set Min/Max CPU frequencies."
+        default n
+        help
+          Allow setting min and max CPU frequencies. Sysfs can be used
+          to override these values.
+
+config CPU_FREQ_MAX
+        int "Max CPU Frequency"
+        depends on CPU_FREQ_SET_MIN_MAX
+        default 1008000
+
+config CPU_FREQ_MIN
+        int "Min CPU Frequency"
+        depends on CPU_FREQ_SET_MIN_MAX
+        default 300000
+
 endmenu
 
 endif
