@@ -372,6 +372,21 @@ config OMAP_FIQ_DEBUGGER
 	help
 	  Enables the serial FIQ debugger on OMAP"
 
+comment "CPU / GPU Frequencies"
+	depends on ARCH_OMAP4
+
+config OMAP_CPU_FREQ_1200
+    bool "Enable CPU 1200 mhz"
+    default n
+    help
+      Enables overclocking the CPU to 1200 mhz
+
+config OMAP_GPU_FREQ_384
+    bool "Enable GPU 384 mhz"
+    default n
+    help
+        Enables overclocking the GPU to 384 mhz
+
 endmenu
 
 endif
