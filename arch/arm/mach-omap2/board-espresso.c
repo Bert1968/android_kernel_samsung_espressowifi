@@ -160,10 +160,18 @@ static struct platform_device *espresso_devices[] __initdata = {
 	&bcm4330_bluetooth_device,
 };
 
+#ifdef CONFIG_CPU_FREQ_GOV_ONDEMAND_2_PHASE
+int set_two_phase_freq(int cpufreq);
+#endif
+
 static void __init espresso_init_early(void)
 {
 	omap2_init_common_infrastructure();
 	omap2_init_common_devices(NULL, NULL);
+
+#ifdef CONFIG_CPU_FREQ_GOV_ONDEMAND_2_PHASE
+    set_two_phase_freq(920000);
+#endif
 
 	omap4_espresso_display_early_init();
 }
